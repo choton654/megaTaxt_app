@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "941565730225",
+    "firebase_url": "https://mt-react-f099d-default-rtdb.firebaseio.com",
+    "project_id": "mt-react-f099d",
+    "storage_bucket": "mt-react-f099d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941565730225:android:ca14fbf2b08edf72053190",
+        "android_client_info": {
+          "package_name": "com.megataxiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941565730225-jvqdd1ca3h7nv9fo7sd4b529i8c233n4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyhta0X4-qaLGEGzlhi3A-Ha_dk_D9vhM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941565730225-jvqdd1ca3h7nv9fo7sd4b529i8c233n4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

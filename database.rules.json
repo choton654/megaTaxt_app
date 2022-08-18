@@ -1,0 +1,131 @@
+{
+  "rules": {
+    "orders": {
+      "$orderId": {
+        ".read": "data.child('uid').val() === auth.uid",
+        ".write": "!data.exists() && newData.exists()",
+        ".validate": "newData.hasChildren(['addressFrom', 'passengerInfo', 'status', 'uid', 'lang'])",
+        "addressFrom": {
+          ".validate": "newData.hasChildren(['address', 'city', 'countryCode', 'id', 'lat', 'lng', 'name', 'postalCode', 'provinceCode', 'streetName', 'streetNumber', 'subcity', 'title'])",
+          "address": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "city": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "countryCode": {
+            ".validate": "newData.exists() && newData.isString() && newData.val() === 'CA'"
+          },
+          "id": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 64"
+          },
+          "lat": {
+            ".validate": "newData.exists() && newData.isNumber() && newData.val() >= -90 && newData.val() <= 90"
+          },
+          "lng": {
+            ".validate": "newData.exists() && newData.isNumber() && newData.val() >= -180 && newData.val() <= 180"
+          },
+          "name": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "postalCode": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().matches(/^[ABCEGHJ-NPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z]([ ]?\\d[ABCEGHJ-NPRSTV-Z]\\d)?$/i)"
+          },
+          "provinceCode": {
+            ".validate": "newData.exists() && newData.isString() && (newData.val() === 'QC' || newData.val() === 'ON')"
+          },
+          "streetName": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "streetNumber": {
+            ".validate": "newData.exists() && ((newData.isString() && newData.val().length > 0 && newData.val().length < 16) || (newData.isNumber() && newData.val() > 0))"
+          },
+          "subcity": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "title": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "addressTo": {
+          ".validate": "newData.hasChildren(['address', 'city', 'countryCode', 'id', 'lat', 'lng', 'name', 'postalCode', 'provinceCode', 'streetName', 'streetNumber', 'subcity', 'title'])",
+          "address": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "city": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "countryCode": {
+            ".validate": "newData.exists() && newData.isString() && newData.val() === 'CA'"
+          },
+          "id": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 64"
+          },
+          "lat": {
+            ".validate": "newData.exists() && newData.isNumber() && newData.val() >= -90 && newData.val() <= 90"
+          },
+          "lng": {
+            ".validate": "newData.exists() && newData.isNumber() && newData.val() >= -180 && newData.val() <= 180"
+          },
+          "name": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "postalCode": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().matches(/^[ABCEGHJ-NPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z]([ ]?\\d[ABCEGHJ-NPRSTV-Z]\\d)?$/i)"
+          },
+          "provinceCode": {
+            ".validate": "newData.exists() && newData.isString() && (newData.val() === 'QC' || newData.val() === 'ON')"
+          },
+          "streetName": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "streetNumber": {
+            ".validate": "newData.exists() && ((newData.isString() && newData.val().length > 0 && newData.val().length < 16) || (newData.isNumber() && newData.val() > 0))"
+          },
+          "subcity": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "title": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "passengerInfo": {
+          ".validate": "newData.hasChildren(['email', 'name', 'phone'])",
+          "email": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,8}$/i)"
+          },
+          "name": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().length > 0 && newData.val().length < 256"
+          },
+          "phone": {
+            ".validate": "newData.exists() && newData.isString() && newData.val().matches(/^\\+[1-9]\\d{1,14}$/i)"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "status": {
+          ".validate": "newData.exists() && newData.isString() && newData.val() === 'NEW'"
+        },
+        "uid": {
+          ".validate": "newData.exists() && newData.isString() && newData.val() === auth.uid"
+        },
+        "lang": {
+          ".validate": "newData.exists() && newData.isString() && (newData.val() === 'en' || newData.val() === 'fr')"
+        },
+        "options": {
+          ".validate": "newData.exists() && newData.isString() && newData.val().matches(/^(vehicleAny|vehicleCar|vehicleStationWagon|vehicleMinivan|paymentDebit|paymentVisa|paymentMasterCard|paymentAmericanExpress|optionAc|animalDog|animalCat|optionVelo|optionSkis|vehicleWheelchairSupport|optionFacteur|optionReceipt|optionParcel|servicesOpeningDoor|servicesCarBoost|optionVip|optionHybrid|optionChu|serviceAccompanyingVehicle)(, (vehicleAny|vehicleCar|vehicleStationWagon|vehicleMinivan|paymentDebit|paymentVisa|paymentMasterCard|paymentAmericanExpress|optionAc|animalDog|animalCat|optionVelo|optionSkis|vehicleWheelchairSupport|optionFacteur|optionReceipt|optionParcel|servicesOpeningDoor|servicesCarBoost|optionVip|optionHybrid|optionChu|serviceAccompanyingVehicle))*$/)"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}

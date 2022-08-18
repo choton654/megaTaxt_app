@@ -1,0 +1,25 @@
+{
+  "env": {
+    "react-native/react-native": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "react-native"
+  ],
+  "rules": {
+    "global-require": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react-native/no-unused-styles": 2, // disallow unused styles
+    "react-native/no-inline-styles": 2, // disallow styles declared within the component itself
+    "react-native/no-color-literals": 2, // enforces variable names to be used for storing colors
+    "semi": "error",
+    "quotes": ["error", "single"],
+    "max-len": ["error", { "code": 150 }]
+  }
+}
